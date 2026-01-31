@@ -9,7 +9,7 @@ html, body{
 }
 
 body{
-  background:#2f3b5a;
+  background:#292020;
   overflow:hidden;
   font-family: Arial, sans-serif;
 }
@@ -58,7 +58,6 @@ body{
   line-height: 0.7;
   letter-spacing: -2px;
 
-  /* isi huruf pakai gambar */
   background-image: url("Assets/a.png");
   background-size: cover;
   background-position: center;
@@ -264,7 +263,7 @@ body{
 .info-head{
   position: relative;
   width: 100%;
-  margin-top: 56px;
+  margin-top: 29px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -275,18 +274,22 @@ body{
   color:#3a3a55;
 }
 
-.info-head-bg{
-  position:absolute;
-  top: -18px;
-  width: 320px;
-  height:auto;
+.info-deco-top{
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: auto;
   opacity: .9;
-  pointer-events:none;
-  user-select:none;
+
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
 }
 
 .info-head-title{
-  margin-top: 50px;
+  margin-top: 55px;
   position: relative;
   font-style: italic;
   font-weight: 600;
@@ -296,7 +299,7 @@ body{
 
 .info-head-date{
   position: relative;
-  margin-top: 6px;
+  margin-top: 2px;
   font-weight: 800;
   font-size: 14px;
 }
@@ -509,19 +512,7 @@ body{
   opacity: 1;
 }
 
-.info-deco-top{
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: auto;
-  opacity: .9;
 
-  pointer-events: none;
-  user-select: none;
-  z-index: 2;
-}
 
 .pesan .content-wrap{
   padding-top: 150px;
@@ -571,7 +562,7 @@ section.pesan{
 
 /* ===== GALLERY GRID 2 KOLOM ===== */
 .section.gallery{
-  padding: 7px 11px 120px;
+  padding: 25px 9px 120px;
 }
 
 .gallery-grid{
@@ -583,7 +574,7 @@ section.pesan{
 /* gambar */
 .gallery-grid img{
   width: 100%;
-  aspect-ratio: 3 / 3.3;   /* bikin semua tinggi sama */
+  aspect-ratio: 2 / 3;   /* bikin semua tinggi sama */
   object-fit: cover;
 
   border-radius: 14px;
@@ -691,4 +682,260 @@ section.pesan{
     top: 100px;
     font-size: 56px;
   }
+
+  html, body{
+    width:100%;
+    height:100%;
+    margin:0;
+  }
+
+  body{
+    background:#ffffff;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  .page{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .frame{
+    width:350px;
+    height:100vh;
+    max-height:860px;
+    background:#ffffff;
+    position:relative;
+    overflow:hidden;
+    border-radius: 24px;
+  }
+
+  /* area kerja desain */
+  .canvas{
+    position:absolute;
+    inset:0;
+  }
+
+  .card-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+
+  .graduation{
+    position:absolute;
+    top: 120px;
+    left: 40px;
+
+    font-family: playfair display, serif;
+    font-weight: 800;
+
+    font-size: 110px;
+    line-height: 0.7;
+    letter-spacing: -2px;
+
+    background-image: url("Assets/a.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 0 1px 0 rgba(0,0,0,.08);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent; 
+
+    pointer-events:none;
+    user-select:none;
+  }
+
+  .graduation div{
+    background: none;
+  }
+
+  .graduation div:nth-child(4){
+    margin-left: 40px;
+  }
+
+  .deco{
+    position:absolute;
+    height:auto;
+    z-index: 10;
+    pointer-events:none;
+    user-select:none;
+  }
+
+  /* 1) kanan atas */
+  .deco-top-right{
+    top: -10px;
+    right: -10px;
+    width: 190px;
+  }
+
+  /* 2) kiri tengah (dekat graduation) */
+  .deco-mid-left{
+    top: 330px;
+    left: 0;
+    width: 110px;
+  }
+
+  /* 3) kiri bawah */
+  .deco-bottom-left{
+    bottom: -90px;
+    left: 0px;
+    width: 220px;
+  }
+
+  /* 4) kanan bawah */
+  .deco-bottom-right{
+    bottom: -100px;
+    right: -30px;
+    width: 200px;
+  }
+
+  .side-info{
+    position:absolute;
+    top: 200px;
+    left: 175px;   /* posisinya di kanan graduation */
+    width: 1000px;
+
+    color: #2d2d2d;
+    text-align:left;
+
+    z-index: 6;
+  }
+
+  /* teks kecil */
+  .info-title{
+    font-family: playfair display, serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+  }
+
+  .info-sub{
+    margin-top: 6px;
+    font-size: 12px;
+    letter-spacing: .6px;
+    opacity: .85;
+  }
+
+  /* blok tanggal */
+  .info-date{
+    display:flex;
+    align-items:flex-end;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .date-left{
+    position: relative;
+    padding-right: 16px;
+  }
+
+  .date-left::after{
+    content: "";
+    position: absolute;
+    right: 5px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgba(0, 0, 0, 0.801);
+
+    transform: rotate(8deg);
+    transform-origin: top;
+  }
+
+  .date-day{
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: .8px;
+  }
+
+  .date-month{
+    font-family: playfair display, serif;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
+  .date-month .month{
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    transform: translateY(-7px);
+  }
+
+  .date-month .day{
+    font-size: 28px; /* lebih besar */
+    font-weight: 900;
+    line-height: 1;
+  }
+
+
+  .date-year{
+    font-family: playfair display, serif;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 1.5;
+    transform: translateX(-14px);
+  }
+
+  /* jam */
+  .info-time{
+    font-family: playfair display, serif;
+    margin-top: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: .4px;
+  }
+
+  /* nama tamu */
+  .info-with{
+    font-family: playfair display, serif;
+    margin-top: 18px;
+    font-size: 13px;
+    opacity: .85;
+  }
+
+  .info-guest{
+    font-family: playfair display, serif;
+    margin-top: 6px;
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  /* tombol */
+  .info-btn{
+    font-family: playfair display, serif;
+    margin-top: 14px;
+    border: 0;
+    padding: 9px 10px;
+    background: #8b1c1c;
+    color:#fff;
+    font-weight: 900;
+    cursor:pointer;
+  }
+
+  .section{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .section.active{
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  
 }
+
+
