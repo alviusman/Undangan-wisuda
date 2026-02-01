@@ -672,27 +672,14 @@ section.pesan{
 
 
 @media (max-width: 420px) {
-  .frame{
-    width: 100vw;
-    max-width: 420px;
-    border-radius: 0;
-  }
-
-  #opening .graduation{
-    left: 16px;
-    top: 140px;
-    font-size: 74px;
-    line-height: 0.78;
-  }
-
- html, body {
+  html, body {
   width: 350px !important;
   margin: 0 auto !important;
   overflow-x: hidden !important;
-  background: #292020; /* Warna background luar card */
+  background: #292020; /* Warna luar card */
 }
 
-/* 2. Page sebagai container yang menengahkan card */
+/* 2. Page sebagai penengah otomatis */
 .page {
   width: 350px !important;
   height: 100dvh;
@@ -700,7 +687,7 @@ section.pesan{
   margin: 0 auto;
 }
 
-/* 3. KUNCI Frame di 350px - Ukuran ini TIDAK BOLEH berubah 1px pun */
+/* 3. Kunci Frame tepat di 350px (Jangan biarkan berubah 1px pun) */
 .frame {
   width: 350px !important;
   min-width: 350px !important;
@@ -712,32 +699,33 @@ section.pesan{
   overflow: hidden !important;
 }
 
-/* 4. Fix Background: Kunci strip maroon di sisi kiri secara kaku */
+/* 4. Perbaikan Background: Kunci strip maroon di sisi kiri */
 .card-bg {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: left center !important; /* WAJIB: Kunci sisi kiri gambar */
+  object-position: 20% left center !important; /* Kunci sisi kiri (strip maroon) */
   border-radius: 0 !important;
 }
 
-/* 5. Kunci Posisi Teks: Sesuai angka asli laptop Anda */
+/* 5. Kunci Posisi Teks: Sesuai koordinat laptop Anda */
 .side-info {
   position: absolute !important;
   top: 200px !important;
   left: 175px !important; /* Titik tengah desain Anda */
-  width: 1000px !important; /* Mencegah teks turun baris secara paksa */
+  width: 1000px !important; /* Mencegah teks turun baris */
   text-align: left !important;
   z-index: 10;
 }
 
 .graduation {
   position: absolute !important;
-  left: 60px !important;
-  top: 110px !important;
-  font-size: 100px !important;
+  left: 40px !important;
+  top: 120px !important;
+  font-size: 110px !important;
   width: 350px !important;
   z-index: 5;
+  pointer-events: none;
 }
 
 /* 6. Pastikan Navigasi Bawah tetap di lebar 350px */
