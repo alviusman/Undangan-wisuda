@@ -671,46 +671,70 @@ section.pesan{
 }
 
 
-/* ==========================================================
-   PERBAIKAN MOBILE (Hanya Bagian Depan & Latar Belakang)
-   ========================================================== */
 @media screen and (max-width: 480px) {
-  /* 1. Kunci Frame agar tetap 350px dan berada di tengah layar HP */
-  .page {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    background: #292020 !important; /* Background luar tetap gelap */
-  }
-
+  /* 1. Paksa frame memenuhi lebar HP agar tidak ada jarak kosong di samping */
   .frame {
-    width: 350px !important; /* JANGAN biarkan melebar agar posisi 175px tetap pas */
-    min-width: 350px !important;
-    border-radius: 0; /* Opsional: biarkan memenuhi layar atas-bawah */
-    margin: 0 auto;
-  }
-
-  /* 2. MENGGESER BACKGROUND KE KIRI (Agar balok merah jadi tipis) */
-  .card-bg {
-    /* Menggunakan minus piksel untuk menarik gambar ke kiri */
-    /* Semakin besar angka minusnya (misal -50px), balok merah akan semakin TIPIS */
-    object-position: -40px center !important; 
-    
-    /* Lebarkan sedikit gambar agar tidak ada ruang kosong di kanan saat digeser */
-    width: 125% !important; 
+    width: 100vw !important;
+    height: 100dvh !important;
     max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
   }
 
-  /* 3. Pastikan Teks Graduation tidak bergeser */
-  .graduation {
-    left: 40px !important; /* Tetap pada posisi asli laptop Anda */
-    top: 120px !important;
+  /* 2. LOGIKA TIPISKAN BALOK MERAH:
+     Gunakan object-position dengan persentase untuk menggeser background ke kiri */
+  .card-bg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    /* Angka 18% akan membuang sebagian sisi kiri gambar (balok merah) */
+    object-position: 50% center !important; 
   }
 
-  /* 4. Pastikan Teks Nama tetap di titik tengah (175px) */
+  /* 3. RE-POSITIONING MANUAL (Seperti projek undangan lama Anda)
+     Karena lebar layar sekarang 100vw, kita harus atur ulang koordinatnya */
   .side-info {
-    left: 175px !important;
-    width: 1000px !important; /* Tetap lebar agar teks tidak turun baris */
-    top: 200px !important;
+    left: 53% !important; /* Gunakan persen agar lebih adaptif di berbagai lebar HP */
+    transform: translateX(-10%); /* Haluskan posisi agar tepat di tengah area terang */
+    top: 190px !important;
+    width: 250px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
   }
+
+  /* 4. Sesuaikan Graduation Background */
+  .graduation {
+    left: 30px !important; /* Geser mendekati balok merah yang sudah tipis */
+    top: 100px !important;
+    font-size: 100px !important;
+    transform: scaleY(1.4);
+  }
+
+  /* 5. Dekorasi: Sesuaikan agar tidak menumpuk teks */
+  .deco-top-right { width: 190px !important; top: -10px !important; right: -10px !important; }
+  .deco-mid-left { width: 150px !important; top: 320px !important; left: -40px !important; }
+  .deco-bottom-right { width: 190px !important; bottom: -80px !important; right: -10px !important; }
+
+  /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
+  .bottom-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 75px; /* Menambah sedikit tinggi agar tidak sesak */
+  background: #121516;
+  border-radius: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+  display: flex;
+  align-items: center; /* Menurunkan konten agar tepat di tengah vertikal */
+  justify-content: space-evenly; /* KUNCI: Membuat jarak antar menu sama rata */
+  
+  padding: 0; /* Padding vertikal diatur otomatis oleh align-items: center */
+  z-index: 9999;
+}
+
+.section.gallery {
+  /* Ubah angka 25px (jarak atas) menjadi lebih besar, misalnya 80px atau 100px */
+  padding: 60px 9px 120px;
+}
 }
