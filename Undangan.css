@@ -671,122 +671,80 @@ section.pesan{
 }
 
 
-/* ================= MEDIA QUERY UNTUK MOBILE ================= */
-@media screen and (max-width: 768px) {
-  
-  /* 1. Pastikan frame memenuhi layar HP */
-  .frame {
-    width: 100%;
-    max-width: 100%;
-    height: 100dvh; /* Menggunakan dynamic viewport height */
-    max-height: none; /* Hilangkan batas tinggi */
+@media (max-width: 420px) {
+  .frame{
+    width: 100vw;
+    max-width: 420px;
     border-radius: 0;
   }
 
-  /* 2. Perbaiki Teks "Graduation" agar tidak terlalu besar */
-  #opening .graduation {
-    top: 80px; /* Naikkan sedikit */
-    left: 20px; /* Geser ke kiri agar tidak terpotong */
-    font-size: 80px; /* Kecilkan font */
-    line-height: 0.8;
-  }
-  
-  /* Geser sedikit huruf ke-4 agar rapi */
-  .graduation div:nth-child(4) {
-    margin-left: 20px;
+  #opening .graduation{
+    left: 16px;
+    top: 140px;
+    font-size: 74px;
+    line-height: 0.78;
   }
 
-  /* 3. PERBAIKAN UTAMA: Side Info (Nama, Tanggal, dll) */
-  .side-info {
-    width: auto; /* JANGAN 1000px, biarkan menyesuaikan layar */
-    left: 20px;
-    right: 20px; /* Beri jarak kanan-kiri */
-    top: 250px; /* Sesuaikan posisi vertikal */
-    text-align: left; /* Rata kiri lebih aman untuk layout ini */
-  }
+ html, body {
+  width: 350px !important;
+  margin: 0 auto !important;
+  overflow-x: hidden !important;
+  background: #292020; /* Warna background luar card */
+}
 
-  /* 4. Sesuaikan ukuran font di dalam info */
-  .info-title {
-    font-size: 14px; 
-  }
-  
-  .info-guest {
-    font-size: 24px; /* Perbesar nama tamu agar jelas */
-    word-wrap: break-word; /* Agar nama panjang turun ke bawah */
-  }
+/* 2. Page sebagai container yang menengahkan card */
+.page {
+  width: 350px !important;
+  height: 100dvh;
+  display: block !important;
+  margin: 0 auto;
+}
 
-  /* 5. Atur ulang dekorasi agar tidak menutupi teks */
-  .deco-top-right {
-    width: 120px;
-    top: -20px;
-    right: -20px;
-  }
-  
-  .deco-mid-left {
-    display: none; /* Sembunyikan yang tengah jika mengganggu teks */
-  }
-  
-  .deco-bottom-right {
-    width: 150px;
-    bottom: 60px; /* Naikkan agar tidak ketutup navbar */
-  }
+/* 3. KUNCI Frame di 350px - Ukuran ini TIDAK BOLEH berubah 1px pun */
+.frame {
+  width: 350px !important;
+  min-width: 350px !important;
+  max-width: 350px !important;
+  height: 100dvh !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
 
-  /* 6. Halaman Informasi (Slide 2) */
-  .info-head {
-    margin-top: 80px; /* Beri jarak dari atas */
-  }
-  
-  .info-head-title {
-    font-size: 36px;
-  }
+/* 4. Fix Background: Kunci strip maroon di sisi kiri secara kaku */
+.card-bg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: left center !important; /* WAJIB: Kunci sisi kiri gambar */
+  border-radius: 0 !important;
+}
 
-  .dress-card {
-    width: 90%; /* Agar tidak terlalu lebar */
-  }
+/* 5. Kunci Posisi Teks: Sesuai angka asli laptop Anda */
+.side-info {
+  position: absolute !important;
+  top: 200px !important;
+  left: 175px !important; /* Titik tengah desain Anda */
+  width: 1000px !important; /* Mencegah teks turun baris secara paksa */
+  text-align: left !important;
+  z-index: 10;
+}
 
-  /* 7. Halaman Pesan (Slide 3) */
-  .pesan .content-wrap {
-    padding-top: 120px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+.graduation {
+  position: absolute !important;
+  left: 60px !important;
+  top: 110px !important;
+  font-size: 100px !important;
+  width: 350px !important;
+  z-index: 5;
+}
 
-  .pesan-text {
-    max-width: 100%; /* Biarkan teks memenuhi lebar layar */
-    font-size: 14px;
-  }
-
-  /* 8. Halaman Gallery (Slide 4) */
-  .section.gallery {
-    padding: 100px 15px 100px; /* Beri ruang agar tidak kepotong navbar */
-    overflow-y: auto; /* Izinkan scroll jika foto banyak */
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Pastikan 2 kolom seimbang */
-    gap: 10px;
-  }
-  
-  .gallery-grid img {
-    height: auto;
-    aspect-ratio: 1 / 1; /* Paksa kotak agar rapi di grid */
-    object-fit: cover;
-  }
-
-  /* 9. Halaman Thanks (Slide 5) */
-  .thanks-wrap {
-    padding-top: 200px;
-  }
-
-  .thanks-text {
-    font-size: 28px;
-  }
-
-  /* 10. Navigasi Bawah */
-  .bottom-nav {
-    height: 65px;
-    padding-bottom: 5px;
-    background: #121516; /* Pastikan background gelap */
-  }
+/* 6. Pastikan Navigasi Bawah tetap di lebar 350px */
+.bottom-nav {
+  width: 350px !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+}
 }
