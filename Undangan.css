@@ -671,68 +671,46 @@ section.pesan{
 }
 
 
-@media (max-width: 420px) {
-  html, body {
-  width: 350px !important;
-  margin: 0 auto !important;
-  overflow-x: hidden !important;
-  background: #292020; /* Warna luar card */
-}
+/* ==========================================================
+   PERBAIKAN MOBILE (Hanya Bagian Depan & Latar Belakang)
+   ========================================================== */
+@media screen and (max-width: 480px) {
+  /* 1. Kunci Frame agar tetap 350px dan berada di tengah layar HP */
+  .page {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: #292020 !important; /* Background luar tetap gelap */
+  }
 
-/* 2. Page sebagai penengah otomatis */
-.page {
-  width: 350px !important;
-  height: 100dvh;
-  display: block !important;
-  margin: 0 auto;
-}
+  .frame {
+    width: 350px !important; /* JANGAN biarkan melebar agar posisi 175px tetap pas */
+    min-width: 350px !important;
+    border-radius: 0; /* Opsional: biarkan memenuhi layar atas-bawah */
+    margin: 0 auto;
+  }
 
-/* 3. Kunci Frame tepat di 350px (Jangan biarkan berubah 1px pun) */
-.frame {
-  width: 350px !important;
-  min-width: 350px !important;
-  max-width: 350px !important;
-  height: 100dvh !important;
-  max-height: none !important;
-  border-radius: 0 !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
+  /* 2. MENGGESER BACKGROUND KE KIRI (Agar balok merah jadi tipis) */
+  .card-bg {
+    /* Menggunakan minus piksel untuk menarik gambar ke kiri */
+    /* Semakin besar angka minusnya (misal -50px), balok merah akan semakin TIPIS */
+    object-position: -40px center !important; 
+    
+    /* Lebarkan sedikit gambar agar tidak ada ruang kosong di kanan saat digeser */
+    width: 125% !important; 
+    max-width: none !important;
+  }
 
-/* 4. Perbaikan Background: Kunci strip maroon di sisi kiri */
-.card-bg {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: 20% left center !important; /* Kunci sisi kiri (strip maroon) */
-  border-radius: 0 !important;
-}
+  /* 3. Pastikan Teks Graduation tidak bergeser */
+  .graduation {
+    left: 40px !important; /* Tetap pada posisi asli laptop Anda */
+    top: 120px !important;
+  }
 
-/* 5. Kunci Posisi Teks: Sesuai koordinat laptop Anda */
-.side-info {
-  position: absolute !important;
-  top: 200px !important;
-  left: 175px !important; /* Titik tengah desain Anda */
-  width: 1000px !important; /* Mencegah teks turun baris */
-  text-align: left !important;
-  z-index: 10;
-}
-
-.graduation {
-  position: absolute !important;
-  left: 40px !important;
-  top: 120px !important;
-  font-size: 110px !important;
-  width: 350px !important;
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* 6. Pastikan Navigasi Bawah tetap di lebar 350px */
-.bottom-nav {
-  width: 350px !important;
-  left: 0 !important;
-  right: 0 !important;
-  border-radius: 0 !important;
-}
+  /* 4. Pastikan Teks Nama tetap di titik tengah (175px) */
+  .side-info {
+    left: 175px !important;
+    width: 1000px !important; /* Tetap lebar agar teks tidak turun baris */
+    top: 200px !important;
+  }
 }
