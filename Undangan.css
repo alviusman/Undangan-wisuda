@@ -676,9 +676,9 @@ section.pesan{
   .frame {
     width: 100vw !important;
     height: 100dvh !important;
-    max-width: none !important;
-    max-height: none !important;
     border-radius: 0 !important;
+    max-height: 800px; /* Batasi tinggi agar rasio tetap seperti preview */
+    margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
   }
 
   /* 2. LOGIKA TIPISKAN BALOK MERAH:
@@ -689,6 +689,14 @@ section.pesan{
     object-fit: cover !important;
     /* Angka 18% akan membuang sebagian sisi kiri gambar (balok merah) */
     object-position: 50% center !important; 
+  }
+
+  .section {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center; /* Ini yang akan menghilangkan jarak jauh di bawah */
+    align-items: center;
+    padding: 20px 20px 100px; /* Beri ruang aman untuk navigasi bawah */
   }
 
   /* 3. RE-POSITIONING MANUAL (Seperti projek undangan lama Anda)
@@ -703,14 +711,15 @@ section.pesan{
   /* 4. Sesuaikan Graduation Background */
   .graduation {
     left: 30px !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 100px !important;
+    top: 38px !important;
     font-size: 100px !important;
     transform: scaleY(1.4);
+    transform-origin: top;
   }
 
   /* 5. Dekorasi: Sesuaikan agar tidak menumpuk teks */
   .deco-top-right { width: 190px !important; top: -10px !important; right: -10px !important; }
-  .deco-mid-left { width: 150px !important; top: 320px !important; left: -40px !important; }
+  .deco-mid-left { width: 150px !important; top: 290px !important; left: -40px !important; }
   .deco-bottom-right { width: 190px !important; bottom: -80px !important; right: -10px !important; }
 
   /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
@@ -737,4 +746,37 @@ section.pesan{
   /* Ubah angka 25px (jarak atas) menjadi lebih besar, misalnya 80px atau 100px */
   padding: 60px 9px 120px;
 }
+
+.content-wrap {
+    padding: 0 !important; /* Flexbox di atas sudah menengahkan ini */
+    margin-top: 1px; /* Naikkan sedikit lagi */
+  }
+
+.nav-item {
+    height: auto !important;
+    padding: 5px 0 !important;
+    gap: 2px !important;
+  }
+
+ .thanks-wrap {
+    /* Nilai 200px akan mendorong teks lebih ke bawah. 
+       Semakin besar angkanya, teks akan semakin TURUN. */
+    padding-top: 200px !important; 
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    text-align: center;
+  }
+
+  /* 2. Mengatur Ukuran Font Kalimat */
+  /* Pastikan tag-nya sesuai (h2 atau p) yang Anda gunakan di index.html */
+  .thanks-text{
+    /* Ubah angka ini untuk memperbesar atau memperkecil teks */
+    font-size: 30px !important; 
+    
+    /* Agar jarak antar baris teks tidak terlalu rapat */
+    line-height: 1.5 !important; 
+    
+    /* Warna teks jika ingin disesuaikan */
+    color: #292020 !important; 
+  }
 }
