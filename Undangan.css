@@ -254,11 +254,16 @@ body{
   pointer-events:auto;
 }
 
+
 .informasi{
   background:#ffffff;
+}
+
+/* header: garis + Your Event + tanggal */
+.info-head{
   position: relative;
   width: 100%;
-  margin-top: 35px;
+  margin-top: 30px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -271,10 +276,10 @@ body{
 
 .info-deco-top{
   position: absolute;
-  top: -60px;
+  top: -65px;
   left: 50%;
   transform: translateX(-50%);
-  width: 170px;
+  width: 180px;
   height: auto;
   opacity: .9;
 
@@ -301,7 +306,7 @@ body{
 
 /* lokasi + tombol maps */
 .info-place{
-  margin-top: 10px;
+  margin-top: 16px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -391,7 +396,7 @@ body{
 
 /* Countdown: 4 kotak sejajar seperti referensi */
 .simply-countdown{
-  margin-top: 10px !important;
+  margin-top: 20px !important;
   display:flex !important;
   justify-content:center;
   gap: 10px;
@@ -665,127 +670,121 @@ section.pesan{
   to{ transform: rotate(360deg); }
 }
 
+@media screen and (max-width: 768px) {
+  .frame {
+    width: 350px !important; /* Tetap pertahankan ukuran card laptop */
+    height: 100dvh !important;
+    max-height: 850px;
+    margin: 0 auto;
+    border-radius: 20px; /* Masih menggunakan rounded corner di tablet */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
 
-@media screen and (max-width: 600px) {
-  /* 1. Paksa frame memenuhi lebar HP agar tidak ada jarak kosong di samping */
+  .card-bg {
+    object-position: 20% center !important; /* Balok merah sedikit menipis */
+  }
+
+  /* Navigasi bawah tetap lebar card */
+  .bottom-nav {
+    width: 350px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================
+   1. MEDIA QUERY: TABLET (MAX 768PX)
+   ========================================================== */
+@media screen and (max-width: 768px) {
+  .frame {
+    width: 350px !important;
+    height: 95dvh !important;
+    max-height: 850px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
+  /* Countdown untuk Tablet: Ukuran sedang */
+  .simply-countdown > .simply-section {
+    width: 75px !important;
+    height: 55px !important;
+  }
+}
+
+/* ==========================================================
+   2. MEDIA QUERY: MOBILE (MAX 576PX) - FOKUS FIX OPENING
+   ========================================================== */
+@media screen and (max-width: 576px) {
   .frame {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: center !important; /* Menengahkan konten vertikal */
     width: 100vw !important;
     height: 100dvh !important;
+    max-height: none !important; /* Biarkan mengikuti tinggi asli HP */
     border-radius: 0 !important;
-    max-height: 800px; /* Batasi tinggi agar rasio tetap seperti preview */
-    margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
-    overflow: hidden !important;
+    position: relative !important;
   }
 
-  /* 2. LOGIKA TIPISKAN BALOK MERAH:
-     Gunakan object-position dengan persentase untuk menggeser background ke kiri */
+  /* FIX: BALOK MERAH TIPIS */
   .card-bg {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    /* Angka 18% akan membuang sebagian sisi kiri gambar (balok merah) */
-    object-position: 50% center !important; 
+    object-position: 75% center !important;
   }
 
-  .section {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center; /* Ini yang akan menghilangkan jarak jauh di bawah */
-    align-items: center;
-    padding: 20px 20px 100px; /* Beri ruang aman untuk navigasi bawah */
+  /* FIX: OPENING (Teks Graduation di Tengah) */
+  .graduation {
+    position: absolute !important;
+    left: 27px !important; 
+    top: 50% !important; /* KUNCI: Taruh di titik tengah */
+    transform: translateY(-50%) scaleY(1.4) !important; /* Penengah vertikal otomatis */
+    transform-origin: center;
+    z-index: 1;
   }
 
-  .opening{
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center; /* Ini yang akan menghilangkan jarak jauh di bawah */
-    align-items: center;
-    padding: 20px 20px 100px; /* Beri ruang aman untuk navigasi bawah */
-  }
-
-  /* 3. RE-POSITIONING MANUAL (Seperti projek undangan lama Anda)
-     Karena lebar layar sekarang 100vw, kita harus atur ulang koordinatnya */
+  /* FIX: OPENING (Nama & Info di Tengah Area Terang) */
   .side-info {
-    left: 53% !important; /* Gunakan persen agar lebih adaptif di berbagai lebar HP */
-    transform: translateX(-10%); /* Haluskan posisi agar tepat di tengah area terang */
-    top: 190px !important;
-    width: 250px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
+    position: absolute !important;
+    left: 75% !important;
+    top: 50% !important; /* KUNCI: Taruh di titik tengah */
+    transform: translate(-45%, -50%) !important; /* Penengah vertikal & horizontal otomatis */
+    width: 280px !important;
+    padding-left: 20px !important;
+    z-index: 20;
     margin: 0 !important;
   }
 
-  /* 4. Sesuaikan Graduation Background */
-  .graduation {
-    left: 38px !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 38px !important;
-    font-size: 100px !important;
-    transform: scaleY(1.4) !important;
-    transform-origin: top;
+  /* FIX: COUNTDOWN UNTUK MOBILE */
+  .simply-countdown {
+    margin-top: 15px !important;
+    gap: 8px !important;
   }
 
-  /* 5. Dekorasi: Sesuaikan agar tidak menumpuk teks */
-  .deco-top-right { width: 190px !important; top: -10px !important; right: -10px !important; }
-  .deco-mid-left { width: 150px !important; top: 290px !important; left: -40px !important; }
-  .deco-bottom-right { width: 190px !important; bottom: -80px !important; right: -10px !important; }
+  .simply-countdown > .simply-section {
+    width: 60px !important; /* Ukuran kotak diperkecil agar tidak memenuhi layar */
+    height: 48px !important;
+    padding: 0 !important;
+  }
 
-  /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
+  .simply-countdown .simply-amount { font-size: 16px !important; }
+  .simply-countdown .simply-word { font-size: 10px !important; }
+
+  /* BAGIAN THANKS & GALLERY (Jangan diganggu) */
+  .section.gallery {
+    display: block !important;
+    overflow-y: auto !important;
+    padding-top: 60px !important;
+  }
+
+  .thanks-wrap {
+    padding: 0 24px !important;
+    margin-top: -40px; /* Menghilangkan jarak berlebih di bawah */
+  }
+
   .bottom-nav {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 75px; /* Menambah sedikit tinggi agar tidak sesak */
-  background: #121516;
-  border-radius: 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  
-  display: flex;
-  align-items: center; /* Menurunkan konten agar tepat di tengah vertikal */
-  justify-content: space-evenly; /* KUNCI: Membuat jarak antar menu sama rata */
-  
-  padding: 0; /* Padding vertikal diatur otomatis oleh align-items: center */
-  z-index: 9999;
-}
-
-.section.gallery {
-  /* Ubah angka 25px (jarak atas) menjadi lebih besar, misalnya 80px atau 100px */
-  padding: 60px 9px 120px;
-}
-
-.content-wrap {
-    padding: 0 !important; /* Flexbox di atas sudah menengahkan ini */
-    margin-top: 1px; /* Naikkan sedikit lagi */
+    width: 100% !important;
+    left: 50% !important;
+    height: 75px !important;
+    justify-content: space-evenly !important;
+    border-radius: 0 !important;
   }
-
-.nav-item {
-    height: auto !important;
-    padding: px 0 !important;
-    gap: 2px !important;
-  }
-
- .thanks-wrap {
-    /* Nilai 200px akan mendorong teks lebih ke bawah. 
-       Semakin besar angkanya, teks akan semakin TURUN. */
-    padding-top: 200px !important; 
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    text-align: center;
-  }
-
-  /* 2. Mengatur Ukuran Font Kalimat */
-  /* Pastikan tag-nya sesuai (h2 atau p) yang Anda gunakan di index.html */
-  .thanks-text{
-    /* Ubah angka ini untuk memperbesar atau memperkecil teks */
-    font-size: 30px !important; 
-    
-    /* Agar jarak antar baris teks tidak terlalu rapat */
-    line-height: 1.5 !important; 
-    
-    /* Warna teks jika ingin disesuaikan */
-    color: #292020 !important; 
-  }
-
 }
