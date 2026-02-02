@@ -675,6 +675,7 @@ section.pesan{
     width: 100vw !important;
     height: 100dvh !important;
     border-radius: 0 !important;
+    max-height: 800px; /* Batasi tinggi agar rasio tetap seperti preview */
     margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
     overflow: hidden !important;
   }
@@ -787,31 +788,4 @@ section.pesan{
     color: #292020 !important; 
   }
 
-  .informasi{
-  position: relative;
-  width: 100%;
-  margin-top: 10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-
-  font-family: playfair display, serif;
-  color:#3a3a55;
-  }
-
-.info-deco-top{
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 170px;
-  height: auto;
-  opacity: .9;
-
-  pointer-events: none;
-  user-select: none;
-  z-index: 2;
-}
 }
