@@ -257,13 +257,9 @@ body{
 
 .informasi{
   background:#ffffff;
-}
-
-/* header: garis + Your Event + tanggal */
-.info-head{
   position: relative;
   width: 100%;
-  margin-top: -100px;
+  margin-top: 100px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -671,7 +667,7 @@ section.pesan{
 }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 570px) {
   /* 1. Paksa frame memenuhi lebar HP agar tidak ada jarak kosong di samping */
   .frame {
     display: flex !important;
@@ -680,7 +676,7 @@ section.pesan{
     width: 100vw !important;
     height: 100dvh !important;
     border-radius: 0 !important;
-    max-height: 650px; /* Batasi tinggi agar rasio tetap seperti preview */
+    max-height: px; /* Batasi tinggi agar rasio tetap seperti preview */
     margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
     overflow: hidden !important;
   }
@@ -692,7 +688,7 @@ section.pesan{
     height: 100% !important;
     object-fit: cover !important;
     /* Angka 18% akan membuang sebagian sisi kiri gambar (balok merah) */
-    object-position: 50% center !important; 
+    object-position: 40% center !important; 
   }
 
   .section {
@@ -708,24 +704,24 @@ section.pesan{
   .side-info {
     left: 53% !important; /* Gunakan persen agar lebih adaptif di berbagai lebar HP */
     transform: translateX(-10%); /* Haluskan posisi agar tepat di tengah area terang */
-    top: 190px !important;
-    width: 250px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
+    top: 300px !important;
+    width: 200px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
     margin: 0 !important;
   }
 
   /* 4. Sesuaikan Graduation Background */
   .graduation {
-    left: 30px !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 38px !important;
+    left: 50px !important; /* Geser mendekati balok merah yang sudah tipis */
+    top: 110px !important;
     font-size: 100px !important;
-    transform: scaleY(1.4) !important;
+    transform: scaleY(1.6) !important;
     transform-origin: top;
   }
 
   /* 5. Dekorasi: Sesuaikan agar tidak menumpuk teks */
-  .deco-top-right { width: 190px !important; top: -10px !important; right: -10px !important; }
-  .deco-mid-left { width: 150px !important; top: 290px !important; left: -40px !important; }
-  .deco-bottom-right { width: 190px !important; bottom: -80px !important; right: -10px !important; }
+  .deco-top-right { width: 240px !important; top: 20px !important; right: -10px !important; }
+  .deco-mid-left { width: 160px !important; top: 410px !important; left: -40px !important; }
+  .deco-bottom-right { width: 240px !important; bottom: -80px !important; right: -10px !important; }
 
   /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
   .bottom-nav {
@@ -746,6 +742,7 @@ section.pesan{
   padding: 0; /* Padding vertikal diatur otomatis oleh align-items: center */
   z-index: 9999;
 }
+
 
 .section.gallery {
   /* Ubah angka 25px (jarak atas) menjadi lebih besar, misalnya 80px atau 100px */
