@@ -666,7 +666,7 @@ section.pesan{
 }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   /* 1. Paksa frame memenuhi lebar HP agar tidak ada jarak kosong di samping */
   .frame {
     display: flex !important;
@@ -675,7 +675,6 @@ section.pesan{
     width: 100vw !important;
     height: 100dvh !important;
     border-radius: 0 !important;
-    max-height: 800px; /* Batasi tinggi agar rasio tetap seperti preview */
     margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
     overflow: hidden !important;
   }
