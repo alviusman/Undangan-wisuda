@@ -675,7 +675,7 @@ section.pesan{
     width: 100vw !important;
     height: 100dvh !important;
     border-radius: 0 !important;
-    max-height: 650px; /* Batasi tinggi agar rasio tetap seperti preview */
+    max-height: 800px; /* Batasi tinggi agar rasio tetap seperti preview */
     margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
     overflow: hidden !important;
   }
@@ -718,7 +718,7 @@ section.pesan{
 
   /* 4. Sesuaikan Graduation Background */
   .graduation {
-    left: 30px !important; /* Geser mendekati balok merah yang sudah tipis */
+    left: 38px !important; /* Geser mendekati balok merah yang sudah tipis */
     top: 38px !important;
     font-size: 100px !important;
     transform: scaleY(1.4) !important;
