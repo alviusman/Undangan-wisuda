@@ -9,7 +9,7 @@ html, body{
 }
 
 body{
-  background:#292020;
+  background:#002fff;
   overflow:hidden;
   font-family: Arial, sans-serif;
 }
@@ -254,16 +254,11 @@ body{
   pointer-events:auto;
 }
 
-
 .informasi{
   background:#ffffff;
-}
-
-/* header: garis + Your Event + tanggal */
-.info-head{
   position: relative;
   width: 100%;
-  margin-top: 29px;
+  margin-top: 35px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -276,10 +271,10 @@ body{
 
 .info-deco-top{
   position: absolute;
-  top: -40px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px;
+  width: 170px;
   height: auto;
   opacity: .9;
 
@@ -306,7 +301,7 @@ body{
 
 /* lokasi + tombol maps */
 .info-place{
-  margin-top: 16px;
+  margin-top: 10px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -396,7 +391,7 @@ body{
 
 /* Countdown: 4 kotak sejajar seperti referensi */
 .simply-countdown{
-  margin-top: 20px !important;
+  margin-top: 10px !important;
   display:flex !important;
   justify-content:center;
   gap: 10px;
@@ -674,11 +669,15 @@ section.pesan{
 @media screen and (max-width: 480px) {
   /* 1. Paksa frame memenuhi lebar HP agar tidak ada jarak kosong di samping */
   .frame {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
     width: 100vw !important;
     height: 100dvh !important;
     border-radius: 0 !important;
-    max-height: 800px; /* Batasi tinggi agar rasio tetap seperti preview */
+    max-height: 650px; /* Batasi tinggi agar rasio tetap seperti preview */
     margin: 0 auto; /* Biarkan container .page menengahkan frame ini */
+    overflow: hidden !important;
   }
 
   /* 2. LOGIKA TIPISKAN BALOK MERAH:
@@ -699,6 +698,14 @@ section.pesan{
     padding: 20px 20px 100px; /* Beri ruang aman untuk navigasi bawah */
   }
 
+  .opening{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center; /* Ini yang akan menghilangkan jarak jauh di bawah */
+    align-items: center;
+    padding: 20px 20px 100px; /* Beri ruang aman untuk navigasi bawah */
+  }
+
   /* 3. RE-POSITIONING MANUAL (Seperti projek undangan lama Anda)
      Karena lebar layar sekarang 100vw, kita harus atur ulang koordinatnya */
   .side-info {
@@ -706,6 +713,7 @@ section.pesan{
     transform: translateX(-10%); /* Haluskan posisi agar tepat di tengah area terang */
     top: 190px !important;
     width: 250px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
+    margin: 0 !important;
   }
 
   /* 4. Sesuaikan Graduation Background */
@@ -713,7 +721,7 @@ section.pesan{
     left: 30px !important; /* Geser mendekati balok merah yang sudah tipis */
     top: 38px !important;
     font-size: 100px !important;
-    transform: scaleY(1.4);
+    transform: scaleY(1.4) !important;
     transform-origin: top;
   }
 
@@ -754,7 +762,7 @@ section.pesan{
 
 .nav-item {
     height: auto !important;
-    padding: 5px 0 !important;
+    padding: px 0 !important;
     gap: 2px !important;
   }
 
@@ -779,4 +787,32 @@ section.pesan{
     /* Warna teks jika ingin disesuaikan */
     color: #292020 !important; 
   }
+
+  .informasi{
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+
+  font-family: playfair display, serif;
+  color:#3a3a55;
+  }
+
+.info-deco-top{
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: auto;
+  opacity: .9;
+
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
 }
