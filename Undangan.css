@@ -880,15 +880,8 @@ section.pesan{
 }
 
 /* Memastikan elemen lain tidak punya margin yang mengganggu penyebaran */
-.info-head {
-  margin-top: 1.5vh !important;
-}
-
-.simply-countdown {
-  margin-top: 2vh !important;
-
-}
-
+.info-head,
+.simply-countdown,
 .info-place, 
 .dress-card, 
 .photo-dots {
