@@ -675,18 +675,6 @@ section.pesan{
 
 
 @media screen and (max-width: 576px) {
-  html{
-  width:100%;
-  height:100%;
-  margin:0;
-  }
-
-  body{
-    width:100%;
-    height:100%;
-    margin:0;
-  }
-
   .frame {
     display: flex !important;
     flex-direction: column !important;
@@ -714,16 +702,21 @@ section.pesan{
     flex-direction: column;
     justify-content: center; /* Ini yang akan menghilangkan jarak jauh di bawah */
     align-items: center;
-    padding: 20px 20px 100px; /* Beri ruang aman untuk navigasi bawah */
   }
 
-  /* 3. RE-POSITIONING MANUAL (Seperti projek undangan lama Anda)
-     Karena lebar layar sekarang 100vw, kita harus atur ulang koordinatnya */
   .side-info {
-    left: 53% !important; /* Gunakan persen agar lebih adaptif di berbagai lebar HP */
-    transform: translateX(-10%); /* Haluskan posisi agar tepat di tengah area terang */
-    top: 275px !important;
-    width: 200px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
+    /* Mengganti 53% menjadi vw agar patokannya layar, bukan parent */
+    left: 53vw !important; 
+    
+    /* Mengganti 275px menjadi sekitar 35% tinggi layar */
+    top: 35vh !important;
+    
+    /* Mengganti 200px menjadi sekitar 55% lebar layar */
+    width: 55vw !important; 
+    
+    /* Tetap pertahankan transform ini untuk menyeimbangkan posisi visual */
+    transform: translateX(-10%) !important; 
+    
     margin: 0 !important;
   }
 
@@ -763,23 +756,27 @@ section.pesan{
     z-index: 1 !important; /* Pastikan di bawah teks penting */
   }
 
-  /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
-  .bottom-nav {
+.bottom-nav {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 75px; /* Menambah sedikit tinggi agar tidak sesak */
+
+  /* Tinggi bar 10% dari tinggi layar (menggantikan 75px) */
+  height: 10vh !important; 
+
   background: #121516;
   border-radius: 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  
+  /* Lengkungan sudut 3% dari lebar layar (menggantikan 10px) */
+  border-top-left-radius: 3vw !important;
+  border-top-right-radius: 3vw !important;
   
   display: flex;
-  align-items: center; /* Menurunkan konten agar tepat di tengah vertikal */
-  justify-content: space-evenly; /* KUNCI: Membuat jarak antar menu sama rata */
+  align-items: center; 
+  justify-content: space-evenly; 
   
-  padding: 0; /* Padding vertikal diatur otomatis oleh align-items: center */
+  padding: 0;
   z-index: 9999;
 }
 
