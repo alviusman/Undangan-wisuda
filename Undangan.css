@@ -709,7 +709,7 @@ section.pesan{
     left: 53vw !important; 
     
     /* Mengganti 275px menjadi sekitar 35% tinggi layar */
-    top: 35vh !important;
+    top: 30vh !important;
     
     /* Mengganti 200px menjadi sekitar 55% lebar layar */
     width: 55vw !important; 
@@ -893,7 +893,7 @@ section.pesan{
   /* Padding Atas: 15% tinggi layar (biar tidak ketutup poni/kamera) */
   /* Padding Kiri-Kanan: 4% lebar layar */
   /* Padding Bawah: 15% tinggi layar (biar tidak ketutup menu bawah) */
-  padding: 15vh 4vw 15vh !important;
+  padding: 10vh 4vw 10vh !important;
   
   /* Gunakan min-height agar jika foto sedikit tetap full layar, */
   /* tapi jika foto banyak bisa discroll */
