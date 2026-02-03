@@ -119,7 +119,7 @@ body{
 }
 
 .side-info{
-   font-family: "Dancing Script", weight;
+   font-family: playfair display, serif;
   position:absolute;
   top: 200px;
   left: 175px;   /* posisinya di kanan graduation */
@@ -192,14 +192,14 @@ body{
   font-size: 35px; /* lebih besar */
   font-weight: 900;
   line-height: 1;
-  transform: translateY(-15px);
+  transform: translateY(-8px);
 }
 
 
 .date-year{
-  font-family: "Dancing Script", weight;
+  font-family: "Playfair Display", serif;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 45px;
   line-height: 1.5;
   transform: translateX(-14px);
 }
@@ -227,7 +227,7 @@ body{
 
 /* tombol */
 .info-btn{
-  font-family: dancing script, weight;
+  font-family: playfair display, serif;
   margin-top: 14px;
   border: 0;
   padding: 9px 10px;
@@ -265,7 +265,7 @@ body{
   justify-content:center;
   text-align:center;
 
-  font-family: dancing script, weight;
+  font-family: playfair display, serif;
   color:#3a3a55;
 }
 
@@ -287,16 +287,16 @@ body{
   margin-top: 55px;
   position: relative;
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 45px;
   line-height: 1;
+  font-family: "Charm", cursive;
 }
 
 .info-head-date{
   position: relative;
   margin-top: 2px;
   font-weight: 800;
-  font-size: 14px;
 }
 
 /* lokasi + tombol maps */
@@ -306,17 +306,16 @@ body{
   flex-direction:column;
   align-items:center;
   gap: 6px;
-
-  font-family: dancing script, weight;
   color:#0c0c1b;
   text-align:center;
 }
 
 .place-title{
-  font-weight: 600;
+  font-weight: 700;
   font-style: italic;
   font-size: 28px;
   line-height: 1;
+   font-family: "Charm", cursive;
 }
 
 .place-sub{
@@ -347,7 +346,7 @@ body{
   text-align:center;
   margin-left: auto;
   margin-right: auto;
-  font-family: playfair display, serif;
+  font-family: "Charm", cursive;
   color:#3a3a55;
 }
 
@@ -423,7 +422,7 @@ body{
 }
 
 .simply-countdown .simply-amount{
-  font-family: "Playfair Display SC", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 900;
   font-size: 18px !important;
   line-height: 1 !important;
@@ -431,7 +430,7 @@ body{
 }
 
 .simply-countdown .simply-word{
-  font-family: "Playfair Display SC", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 800;
   font-size: 12px !important;
   line-height: 1 !important;
@@ -515,7 +514,7 @@ body{
 }
 
 .pesan-title{
-  font-family: dancing script, weight;
+  font-family: "Charm", cursive;
   font-weight: 800;
   font-size: 45px;
   text-align: center;
@@ -541,7 +540,7 @@ body{
 }
 
 .pesan-name{
-  font-family: dancing script, weight;
+  font-family: "Charm", cursive;
   font-weight: 800;
   font-size: 18px;
   color: #000000;
@@ -667,6 +666,88 @@ section.pesan{
   to{ transform: rotate(360deg); }
 }
 
+/* --- Definisi Keyframes Baru --- */
+
+/* Animasi Melayang (Floating) */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Animasi Muncul dari Bawah (Fade In Up) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi untuk konten di dalam section saat aktif */
+.section.active .info-title, 
+.section.active .info-sub, 
+.section.active .info-date,
+.section.active .pesan-text,
+.section.active .gallery-img {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Delay agar muncul bergantian */
+.section.active .info-title:nth-child(1) { animation-delay: 0.3s; }
+.section.active .info-title:nth-child(2) { animation-delay: 0.5s; }
+.section.active .info-sub { animation-delay: 0.7s; }
+.section.active .info-date { animation-delay: 0.9s; }
+.section.active .info-btn { animation-delay: 1.1s; }
+
+/* 1. Definisi Keyframes Animasi */
+
+/* Animasi Masuk (Awal) */
+@keyframes slideInTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Animasi Melayang (Looping) */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 2. Penerapan pada Elemen Dekorasi */
+
+/* Kanan Atas: Masuk dari atas, lalu melayang */
+.deco-top-right {
+  animation: 
+    slideInTop 1.2s ease-out forwards, ease-in-out; /* float dimulai setelah 1.2 detik */
+}
+
+/* Kiri Tengah: Masuk dari kiri, lalu melayang */
+.deco-mid-left {
+  animation: 
+    slideInLeft 1.2s ease-out forwards, ease-in-out;
+}
+
+/* Kanan Bawah: Masuk dari kanan, lalu melayang */
+.deco-bottom-right {
+  animation: 
+    slideInRight 1.2s ease-out forwards, ease-in-out;
+}
 
 @media (max-width: 600px) {
   .frame {
