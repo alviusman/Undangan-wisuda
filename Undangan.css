@@ -673,7 +673,7 @@ section.pesan{
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 450px) {
   .frame {
     display: flex !important;
     flex-direction: column !important;
@@ -963,10 +963,4 @@ section.pesan{
   
   margin: 0 auto !important;
 }
-}
-
-@media (max-width: 450px) {
-  html {
-    font-size: 40%;
-  }
 }
