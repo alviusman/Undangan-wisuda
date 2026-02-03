@@ -2,11 +2,33 @@
   const openBtn = document.getElementById("openBtn");
   const bottomNav = document.getElementById("bottomNav");
 
-  // nama tamu dari URL ?to=
+  // === LOGIKA NAMA TAMU (GABUNGAN LAMA & BARU) ===
   const params = new URLSearchParams(window.location.search);
-  const to = params.get("to");
+  
+  // 1. Ambil parameter
+  const to = params.get("to");     // Format lama
+  const nama = params.get("n");    // Format baru (Nama)
+  const pronoun = params.get("p"); // Format baru (Sapaan)
+
+  // 2. Ambil elemen HTML
   const guestNameEl = document.getElementById("guestName");
-  if (to && guestNameEl) guestNameEl.textContent = decodeURIComponent(to);
+  const guestPronounEl = document.getElementById("guestPronoun");
+
+  // 3. Logika Pengisian Nama
+  // Prioritaskan ?n=, jika tidak ada cek ?to=
+  if (guestNameEl) {
+    if (nama) {
+      guestNameEl.textContent = nama;
+    } else if (to) {
+      guestNameEl.textContent = decodeURIComponent(to);
+    }
+  }
+
+  // 4. Logika Pengisian Sapaan (Pronoun)
+  if (pronoun && guestPronounEl) {
+    guestPronounEl.textContent = "Kepada " + pronoun;
+  }
+  // ===============================================
 
   function showSection(id) {
     document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
@@ -46,90 +68,81 @@
     btn.addEventListener("click", () => showSection(btn.dataset.target));
   });
 
-  // Open invitation
+  // Open invitation & Music
+  const song = document.getElementById("song");
+  const audioBtn = document.getElementById("audioBtn");
+  const audioIcon = audioBtn.querySelector("i");
+  let isPlaying = false;
+
+  function showMusicButton() {
+    audioBtn.classList.remove("hidden");
+  }
+
+  function playAudio() {
+    song.volume = 0.1;
+    song.play();
+    isPlaying = true;
+
+    audioBtn.classList.add("playing");
+    audioIcon.classList.remove("bi-pause-circle");
+    audioIcon.classList.add("bi-disc");
+  }
+
+  function pauseAudio() {
+    song.pause();
+    isPlaying = false;
+
+    audioBtn.classList.remove("playing");
+    audioIcon.classList.remove("bi-disc");
+    audioIcon.classList.add("bi-pause-circle");
+  }
+
+  // Event Listener Tombol Musik
+  audioBtn.addEventListener("click", () => {
+    if (isPlaying) pauseAudio();
+    else playAudio();
+  });
+
+  // Event Listener Tombol Buka Undangan
   if (openBtn) {
     openBtn.addEventListener("click", function () {
       if (bottomNav) bottomNav.classList.remove("hidden");
       showSection("informasi");
       startCountdown();
+      
+      // Jalankan musik
+      showMusicButton();
+      playAudio();
     });
   }
 
-  document.getElementById("btnMaps").addEventListener("click", function () {
-  window.open(
-    "https://maps.google.com/?q=Regale+International+Convention+Centre",
-    "_blank"
-  );
-});
+  // Event Listener Google Maps
+  const btnMaps = document.getElementById("btnMaps");
+  if (btnMaps) {
+    btnMaps.addEventListener("click", function () {
+      window.open(
+        "https://maps.google.com/?q=Regale+International+Convention+Centre",
+        "_blank"
+      );
+    });
+  }
 
-function showSection(id){
-  document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
-  const target = document.getElementById(id);
-  if (target) target.classList.add("active");
+  // === LIGHTBOX GALLERY ===
+  const galleryImages = document.querySelectorAll('.gallery-img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
 
-  document.querySelectorAll(".bottom-nav .nav-item").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.target === id);
-  });
-}
+  if (lightbox && lightboxImg) {
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
 
-const galleryImages = document.querySelectorAll('.gallery-img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-galleryImages.forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightbox.classList.add('active');
-  });
-});
-
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-});
-
-const song = document.getElementById("song");
-const audioBtn = document.getElementById("audioBtn");
-const audioIcon = audioBtn.querySelector("i");
-
-let isPlaying = false;
-
-function showMusicButton(){
-  audioBtn.classList.remove("hidden");
-}
-
-function playAudio(){
-  song.volume = 0.1;
-  song.play();
-  isPlaying = true;
-
-  audioBtn.classList.add("playing");
-  audioIcon.classList.remove("bi-pause-circle");
-  audioIcon.classList.add("bi-disc");
-}
-
-function pauseAudio(){
-  song.pause();
-  isPlaying = false;
-
-  audioBtn.classList.remove("playing");
-  audioIcon.classList.remove("bi-disc");
-  audioIcon.classList.add("bi-pause-circle");
-}
-
-audioBtn.addEventListener("click", () => {
-  if(isPlaying) pauseAudio();
-  else playAudio();
-});
-
-/* Panggil ini saat user klik Open Invitation */
-function onOpenInvite(){
-  showMusicButton();
-  playAudio();
-}
-
-document.getElementById("openBtn").addEventListener("click", () => {
-  onOpenInvite();
-});
-
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  }
 
 })();
