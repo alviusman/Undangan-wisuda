@@ -2,13 +2,16 @@
   box-sizing:border-box;
 }
 
-html, body{
+html{
   width:100%;
   height:100%;
   margin:0;
 }
 
 body{
+  width:100%;
+  height:100%;
+  margin:0;
   background:#002fff;
   overflow:hidden;
   font-family: Arial, sans-serif;
@@ -671,8 +674,19 @@ section.pesan{
 }
 
 
-@media screen and (max-width: 480px) {
-  /* 1. Paksa frame memenuhi lebar HP agar tidak ada jarak kosong di samping */
+@media screen and (max-width: 570px) {
+  html{
+  width:100%;
+  height:100%;
+  margin:0;
+  }
+
+  body{
+    width:100%;
+    height:100%;
+    margin:0;
+  }
+
   .frame {
     display: flex !important;
     flex-direction: column !important;
