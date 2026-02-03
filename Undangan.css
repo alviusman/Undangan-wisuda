@@ -882,7 +882,6 @@ section.pesan{
 /* Memastikan elemen lain tidak punya margin yang mengganggu penyebaran */
 .info-head {
   margin-top: 1.5vh !important;
-  margin-bottom: -5vh !important;
 }
 
 .simply-countdown {
