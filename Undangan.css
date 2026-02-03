@@ -729,18 +729,39 @@ section.pesan{
 
   /* 4. Sesuaikan Graduation Background */
   .graduation {
-    left: 45px !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 100px !important;
-    font-size: 100px !important;
+    left: 11vw !important; /* Geser mendekati balok merah yang sudah tipis */
+    top: 11vh !important;
+    font-size: 25vw !important;
     transform: scaleY(1.4) !important;
     transform-origin: top;
     line-height: 0.85 !important;
   }
 
-  /* 5. Dekorasi: Sesuaikan agar tidak menumpuk teks */
-  .deco-top-right { width: 220px !important; top: -10px !important; right: -10px !important; }
-  .deco-mid-left { width: 170px !important; top: 430px !important; left: -40px !important; }
-  .deco-bottom-right { width: 250px !important; bottom: -80px !important; right: -10px !important; }
+  .deco-top-right {
+  width: 60vw !important;  /* Lebar menyesuaikan 45% lebar layar */
+  top: -2vw !important;    /* Jarak dari atas menyesuaikan */
+  right: -2vw !important; 
+  }
+
+  /* 2. Bunga Kiri Tengah (Dekat tulisan graduation) */
+  .deco-mid-left {
+    width: 50vw !important;  /* Lebar 30% layar */
+    top: 49vh !important;    /* Posisi vertikal di 40% tinggi layar */
+    left: -17vw !important;   /* Sedikit terpotong di kiri biar artistik */
+  }
+
+  /* 3. Bunga Kanan Bawah */
+  .deco-bottom-right {
+    width: 70vw !important; 
+    bottom: -15vh !important; /* Posisi dari bawah menyesuaikan tinggi layar */
+    right: -6vw !important;
+  }
+
+  /* 4. Pastikan gambar tidak menutupi teks (opsional) */
+  .deco {
+    opacity: 0.9; /* Sedikit transparan jika perlu */
+    z-index: 1 !important; /* Pastikan di bawah teks penting */
+  }
 
   /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
   .bottom-nav {
@@ -762,35 +783,41 @@ section.pesan{
   z-index: 9999;
 }
 
-/* --- Tambahkan ini di DALAM @media screen and (max-width: 570px) --- */
-
 .section.informasi {
   /* KUNCI: Ubah dari 'center' ke 'space-between' agar elemen menyebar ke atas & bawah */
   justify-content: space-between !important; 
   
   /* Atur ulang padding agar pas dengan garis yang Anda inginkan */
-  padding-top: 100px !important;     /* Jarak dari tepi atas HP */
-  padding-bottom: 80px !important; /* Jarak dari bawah (supaya tidak tertutup navbar) */
+  /* 100px kira-kira 12% dari tinggi layar HP */
+  padding-top: 12vh !important;     
+  
+  /* 80px kira-kira 10% dari tinggi layar HP */
+  padding-bottom: 10vh !important; 
   
   height: 100dvh !important;        /* Pastikan area ini setinggi layar penuh */
 }
 
 /* Opsi Tambahan: Membesarkan Topi Toga sedikit agar lebih proporsional */
 .info-deco-top {
-  width: 250px !important; /* Diperbesar dari 140px */
+  /* 250px kira-kira 65% dari lebar layar HP standar */
+  width: 65vw !important; 
   margin: 0 auto !important;
-  top: -20px;
+  
+  /* -20px kira-kira -2.5% tinggi layar */
+  top: -2.5vh; 
 }
 
 /* Memastikan elemen lain tidak punya margin yang mengganggu penyebaran */
 .info-head {
-  margin-top: 10px !important;
-  margin-bottom: -40px !important;
+  margin-top: 1.5vh !important;
+  margin-bottom: -5vh !important;
 }
+
 .simply-countdown {
-  margin-top: 15px !important;
-  margin-bottom: -10px !important;
+  margin-top: 2vh !important;
+  margin-bottom: -1.5vh !important;
 }
+
 .info-place, 
 .dress-card, 
 .photo-dots {
@@ -798,41 +825,146 @@ section.pesan{
   margin-bottom: 0 !important;
 }
 
-.section.gallery {
-  /* Ubah angka 25px (jarak atas) menjadi lebih besar, misalnya 80px atau 100px */
-  padding: 60px 9px 120px;
+/* === BAGIAN SECTION PESAN (MOBILE) === */
+
+.section.pesan {
+  display: flex !important;
+  flex-direction: column !important;
+  
+  /* Membuat seluruh isi berada tepat di tengah layar (Vertikal & Horizontal) */
+  justify-content: center !important;
+  align-items: center !important;
+  
+  height: 100dvh !important;
+  width: 100% !important;
+  padding: 0 !important; /* Hapus padding bawaan */
 }
 
-.content-wrap {
-    padding: 0 !important; /* Flexbox di atas sudah menengahkan ini */
-    margin-top: 1px; /* Naikkan sedikit lagi */
-  }
+.pesan .content-wrap {
+  /* Hapus padding-top 150px yang bikin turun */
+  padding-top: 0 !important; 
+  
+  /* Lebar area teks dibatasi 80% lebar layar agar tidak mepet pinggir */
+  width: 80vw !important;
+  
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
 
-.nav-item {
-    height: auto !important;
-    padding: 5px 0 !important;
-    gap: 2px;
-  }
+/* 1. JUDUL "SALAM" */
+.pesan-title {
+  /* Ukuran font 13% dari lebar layar */
+  font-size: 13vw !important; 
+  margin-bottom: 4vh !important; /* Jarak ke teks paragraf */
+}
 
- .thanks-wrap {
-    /* Nilai 200px akan mendorong teks lebih ke bawah. 
-       Semakin besar angkanya, teks akan semakin TURUN. */
-    padding-top: 200px !important; 
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    text-align: center;
-  }
+/* 2. ISI PESAN / PARAGRAF */
+.pesan-text {
+  /* Ukuran font 4.5% dari lebar layar (terbaca jelas di HP) */
+  font-size: 4.5vw !important; 
+  
+  line-height: 1.6 !important;
+  max-width: 100% !important; /* Pastikan tidak dibatasi pixel */
+  margin-bottom: 2vh !important; /* Jarak antar paragraf */
+  text-align: center !important;
+}
 
-  /* 2. Mengatur Ukuran Font Kalimat */
-  /* Pastikan tag-nya sesuai (h2 atau p) yang Anda gunakan di index.html */
-  .thanks-text{
-    /* Ubah angka ini untuk memperbesar atau memperkecil teks */
-    font-size: 30px !important; 
-    
-    /* Agar jarak antar baris teks tidak terlalu rapat */
-    line-height: 1.5 !important; 
-    
-    /* Warna teks jika ingin disesuaikan */
-    color: #292020 !important; 
-  }
+/* 3. NAMA / TANDA TANGAN */
+.pesan-sign {
+  width: 100% !important;
+  margin-top: 5vh !important; /* Jarak dari teks ke nama */
+  
+  /* Mengatur nama agar berada di sebelah kanan bawah */
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.pesan-name {
+  font-size: 5.5vw !important;
+  
+  /* Hapus "padding-left: 160px" dan "transform" dari versi desktop */
+  padding-left: 0 !important; 
+  transform: none !important;
+  
+  margin-right: 5vw !important; /* Beri sedikit jarak dari pinggir kanan */
+}
+
+/* === BAGIAN GALLERY (MOBILE) === */
+
+.section.gallery {
+  /* Padding Atas: 15% tinggi layar (biar tidak ketutup poni/kamera) */
+  /* Padding Kiri-Kanan: 4% lebar layar */
+  /* Padding Bawah: 15% tinggi layar (biar tidak ketutup menu bawah) */
+  padding: 15vh 4vw 15vh !important;
+  
+  /* Gunakan min-height agar jika foto sedikit tetap full layar, */
+  /* tapi jika foto banyak bisa discroll */
+  height: auto !important;
+  min-height: 100dvh !important;
+  
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.gallery-grid {
+  display: grid !important;
+  /* Tetap 2 kolom sama besar */
+  grid-template-columns: repeat(2, 1fr) !important;
+  
+  /* Jarak antar foto (gap) menyesuaikan lebar layar (3%) */
+  gap: 3vw !important;
+}
+
+.gallery-grid img {
+  width: 100% !important;
+  
+  /* Pastikan rasio foto tetap 2:3 agar seragam */
+  aspect-ratio: 2 / 3 !important;
+  object-fit: cover !important;
+  
+  /* Lengkungan sudut foto (border-radius) menyesuaikan lebar layar */
+  border-radius: 4vw !important;
+  
+  /* Bayangan foto juga pakai satuan vh/vw */
+  box-shadow: 0 1vh 2vh rgba(0,0,0,.15) !important;
+}
+
+/* === BAGIAN THANKS / PENUTUP (MOBILE) === */
+
+.section.thanks {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  
+  /* Gunakan flex-start agar kita bisa mendorong teks ke bawah secara manual */
+  justify-content: flex-start !important;
+  
+  height: 100dvh !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  
+  /* PENGGANTI padding-top: 200px */
+  /* Gunakan 30vh (30% tinggi layar) untuk menurunkan teks agar tidak menutupi hiasan atas */
+  padding-top: 30vh !important; 
+}
+
+.thanks-wrap {
+  /* Lebar area teks 90% layar */
+  width: 90vw !important;
+  
+  /* Reset padding lama */
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.thanks-text {
+  /* Ukuran font 8% dari lebar layar (sebelumnya 30px) */
+  font-size: 8vw !important; 
+  
+  line-height: 1.5 !important;
+  color: #2f3b5a !important; /* Pastikan warna kontras dengan background */
+  
+  margin: 0 auto !important;
+}
 }
