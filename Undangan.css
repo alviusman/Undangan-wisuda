@@ -13,7 +13,7 @@ body{
   height:100%;
   margin:0;
   background:#002fff;
-  font-family: playfair display, serif;
+  
 }
 
 .page{
@@ -673,7 +673,23 @@ section.pesan{
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 600px) {
+  *{
+  box-sizing:border-box;
+  }
+
+  html{
+    width:100%;
+    height:100%;
+    margin:0;
+  }
+
+  body{
+  width:100%;
+  height:100%;
+  margin:0;
+  }
+
   .frame {
     display: flex !important;
     flex-direction: column !important;
