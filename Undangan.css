@@ -14,7 +14,7 @@ body{
   margin:0;
   background:#002fff;
   overflow:hidden;
-  font-family: Arial, sans-serif;
+  font-family: playfair display, serif;
 }
 
 .page{
@@ -53,12 +53,11 @@ body{
   position:absolute;
   top: 120px;
   left: 40px;
-
-  font-family: playfair display, serif;
+  font-family: "Playfair Display", serif;
   font-weight: 800;
 
   font-size: 110px;
-  line-height: 0.7;
+  line-height: 0.85;
   letter-spacing: -2px;
 
   background-image: url("Assets/a.png");
@@ -124,7 +123,7 @@ body{
   position:absolute;
   top: 200px;
   left: 175px;   /* posisinya di kanan graduation */
-  width: 1000px;
+  width: 800px;
 
   color: #2d2d2d;
   text-align:left;
@@ -136,7 +135,7 @@ body{
 .info-title{
   font-family: playfair display, serif;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 20px;
   letter-spacing: 1px;
   line-height: 1.2;
 }
@@ -195,9 +194,10 @@ body{
 }
 
 .date-month .day{
-  font-size: 28px; /* lebih besar */
+  font-size: 35px; /* lebih besar */
   font-weight: 900;
   line-height: 1;
+  transform: translateY(-15px);
 }
 
 
@@ -706,7 +706,7 @@ section.pesan{
     height: 100% !important;
     object-fit: cover !important;
     /* Angka 18% akan membuang sebagian sisi kiri gambar (balok merah) */
-    object-position: 50% center !important; 
+    object-position: 40% center !important; 
   }
 
   .section {
@@ -722,24 +722,25 @@ section.pesan{
   .side-info {
     left: 53% !important; /* Gunakan persen agar lebih adaptif di berbagai lebar HP */
     transform: translateX(-10%); /* Haluskan posisi agar tepat di tengah area terang */
-    top: 190px !important;
-    width: 250px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
+    top: 275px !important;
+    width: 200px !important; /* Batasi lebar agar teks tidak lari ke kanan layar */
     margin: 0 !important;
   }
 
   /* 4. Sesuaikan Graduation Background */
   .graduation {
-    left: 30px !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 38px !important;
+    left: 45px !important; /* Geser mendekati balok merah yang sudah tipis */
+    top: 100px !important;
     font-size: 100px !important;
     transform: scaleY(1.4) !important;
     transform-origin: top;
+    line-height: 0.85 !important;
   }
 
   /* 5. Dekorasi: Sesuaikan agar tidak menumpuk teks */
-  .deco-top-right { width: 190px !important; top: -10px !important; right: -10px !important; }
-  .deco-mid-left { width: 150px !important; top: 290px !important; left: -40px !important; }
-  .deco-bottom-right { width: 190px !important; bottom: -80px !important; right: -10px !important; }
+  .deco-top-right { width: 220px !important; top: -10px !important; right: -10px !important; }
+  .deco-mid-left { width: 170px !important; top: 430px !important; left: -40px !important; }
+  .deco-bottom-right { width: 250px !important; bottom: -80px !important; right: -10px !important; }
 
   /* 6. Pastikan Navigasi Bawah tetap nempel di bawah layar HP */
   .bottom-nav {
@@ -759,6 +760,42 @@ section.pesan{
   
   padding: 0; /* Padding vertikal diatur otomatis oleh align-items: center */
   z-index: 9999;
+}
+
+/* --- Tambahkan ini di DALAM @media screen and (max-width: 570px) --- */
+
+.section.informasi {
+  /* KUNCI: Ubah dari 'center' ke 'space-between' agar elemen menyebar ke atas & bawah */
+  justify-content: space-between !important; 
+  
+  /* Atur ulang padding agar pas dengan garis yang Anda inginkan */
+  padding-top: 100px !important;     /* Jarak dari tepi atas HP */
+  padding-bottom: 80px !important; /* Jarak dari bawah (supaya tidak tertutup navbar) */
+  
+  height: 100dvh !important;        /* Pastikan area ini setinggi layar penuh */
+}
+
+/* Opsi Tambahan: Membesarkan Topi Toga sedikit agar lebih proporsional */
+.info-deco-top {
+  width: 250px !important; /* Diperbesar dari 140px */
+  margin: 0 auto !important;
+  top: -20px;
+}
+
+/* Memastikan elemen lain tidak punya margin yang mengganggu penyebaran */
+.info-head {
+  margin-top: 10px !important;
+  margin-bottom: -40px !important;
+}
+.simply-countdown {
+  margin-top: 15px !important;
+  margin-bottom: -10px !important;
+}
+.info-place, 
+.dress-card, 
+.photo-dots {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .section.gallery {
