@@ -806,28 +806,27 @@ section.pesan{
   }
 
   .deco-top-right {
-  width: 60vw !important;  /* Lebar menyesuaikan 45% lebar layar */
+  width: 50vw !important;  /* Lebar menyesuaikan 45% lebar layar */
   top: -2vw !important;    /* Jarak dari atas menyesuaikan */
   right: -2vw !important; 
   }
 
   /* 2. Bunga Kiri Tengah (Dekat tulisan graduation) */
   .deco-mid-left {
-    width: 50vw !important;  /* Lebar 30% layar */
+    width: 45vw !important;  /* Lebar 30% layar */
     top: 49vh !important;    /* Posisi vertikal di 40% tinggi layar */
     left: -17vw !important;   /* Sedikit terpotong di kiri biar artistik */
   }
 
   /* 3. Bunga Kanan Bawah */
   .deco-bottom-right {
-    width: 70vw !important; 
+    width: 50vw !important; 
     bottom: -15vh !important; /* Posisi dari bawah menyesuaikan tinggi layar */
     right: -6vw !important;
   }
 
   /* 4. Pastikan gambar tidak menutupi teks (opsional) */
   .deco {
-    opacity: 0.9; /* Sedikit transparan jika perlu */
     z-index: 1 !important; /* Pastikan di bawah teks penting */
   }
 
