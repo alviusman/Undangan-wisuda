@@ -106,6 +106,21 @@
   // Event Listener Tombol Buka Undangan
   if (openBtn) {
     openBtn.addEventListener("click", function () {
+      
+      // --- TAMBAHAN BARU: Minta Browser Masuk Mode Fullscreen ---
+      const docElm = document.documentElement;
+      if (docElm.requestFullscreen) {
+        docElm.requestFullscreen();
+      } else if (docElm.mozRequestFullScreen) { /* Firefox */
+        docElm.mozRequestFullScreen();
+      } else if (docElm.webkitRequestFullScreen) { /* Chrome, Safari & Opera */
+        docElm.webkitRequestFullScreen();
+      } else if (docElm.msRequestFullscreen) { /* IE/Edge */
+        docElm.msRequestFullscreen();
+      }
+      // -----------------------------------------------------------
+
+      // Logika Asli (Tetap Ada)
       if (bottomNav) bottomNav.classList.remove("hidden");
       showSection("informasi");
       startCountdown();
