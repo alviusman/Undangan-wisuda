@@ -798,7 +798,7 @@ section.pesan{
   /* 4. Sesuaikan Graduation Background */
   .graduation {
     left: 11vw !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 11vh !important;
+    top: 9vh !important;
     font-size: 25vw !important;
     transform: scaleY(1.4) !important;
     transform-origin: top;
