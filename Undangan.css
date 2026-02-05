@@ -769,7 +769,7 @@ section.pesan{
     height: 100% !important;
     object-fit: cover !important;
     /* Angka 18% akan membuang sebagian sisi kiri gambar (balok merah) */
-    object-position: 40% center !important; 
+    object-position: 50% center !important; 
   }
 
   .section {
@@ -798,7 +798,7 @@ section.pesan{
   /* 4. Sesuaikan Graduation Background */
   .graduation {
     left: 11vw !important; /* Geser mendekati balok merah yang sudah tipis */
-    top: 9vh !important;
+    top: 8vh !important;
     font-size: 25vw !important;
     transform: scaleY(1.4) !important;
     transform-origin: top;
@@ -860,7 +860,7 @@ section.pesan{
   
   /* Atur ulang padding agar pas dengan garis yang Anda inginkan */
   /* 100px kira-kira 12% dari tinggi layar HP */
-  padding-top: 12vh !important;     
+  padding-top: 11vh !important;     
   
   /* 80px kira-kira 10% dari tinggi layar HP */
   padding-bottom: 10vh !important; 
@@ -875,7 +875,7 @@ section.pesan{
   margin: 0 auto !important;
   
   /* -20px kira-kira -2.5% tinggi layar */
-  top: -2.5vh; 
+  top: -3.5vh; 
 }
 
 /* Memastikan elemen lain tidak punya margin yang mengganggu penyebaran */
@@ -919,7 +919,7 @@ section.pesan{
 .pesan-title {
   /* Ukuran font 13% dari lebar layar */
   font-size: 13vw !important; 
-  margin-bottom: 4vh !important; /* Jarak ke teks paragraf */
+  margin-bottom: 2vh !important; /* Jarak ke teks paragraf */
 }
 
 /* 2. ISI PESAN / PARAGRAF */
@@ -936,7 +936,7 @@ section.pesan{
 /* 3. NAMA / TANDA TANGAN */
 .pesan-sign {
   width: 100% !important;
-  margin-top: 5vh !important; /* Jarak dari teks ke nama */
+  margin-top: 2vh !important; /* Jarak dari teks ke nama */
   
   /* Mengatur nama agar berada di sebelah kanan bawah */
   display: flex !important;
