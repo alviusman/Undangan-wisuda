@@ -59,7 +59,7 @@ body{
   line-height: 0.85;
   letter-spacing: -2px;
 
-  background-image: url("Assets/a.png");
+  background-image: url("Assets/a.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -550,7 +550,7 @@ body{
 }
 
 section.pesan{
-  background-image: url("Assets/d.png");
+  background-image: url("Assets/c.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -607,7 +607,7 @@ section.pesan{
 }
 
 .section.thanks{
-  background-image: url(Assets/ChatGPT\ Image\ 31\ Jan\ 2026\,\ 00.18.40.png);
+  background-image: url(Assets/b.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
