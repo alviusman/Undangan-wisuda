@@ -959,7 +959,7 @@ section.pesan{
   /* Padding Atas: 15% tinggi layar (biar tidak ketutup poni/kamera) */
   /* Padding Kiri-Kanan: 4% lebar layar */
   /* Padding Bawah: 15% tinggi layar (biar tidak ketutup menu bawah) */
-  padding: 10vh 4vw 10vh !important;
+  padding: 7vh 4vw 10vh !important;
   
   /* Gunakan min-height agar jika foto sedikit tetap full layar, */
   /* tapi jika foto banyak bisa discroll */
