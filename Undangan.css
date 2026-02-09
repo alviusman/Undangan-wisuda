@@ -563,7 +563,7 @@ section.pesan{
 
 .gallery-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 2fr);
   gap: 14px;
 }
 
@@ -973,7 +973,7 @@ section.pesan{
 .gallery-grid {
   display: grid !important;
   /* Tetap 2 kolom sama besar */
-  grid-template-columns: repeat(2, 1fr) !important;
+  grid-template-columns: 1fr !important;
   
   /* Jarak antar foto (gap) menyesuaikan lebar layar (3%) */
   gap: 3vw !important;
@@ -983,7 +983,7 @@ section.pesan{
   width: 100% !important;
   
   /* Pastikan rasio foto tetap 2:3 agar seragam */
-  aspect-ratio: 2 / 3 !important;
+  aspect-ratio: 5 / 4 !important;
   object-fit: cover !important;
   
   /* Lengkungan sudut foto (border-radius) menyesuaikan lebar layar */
